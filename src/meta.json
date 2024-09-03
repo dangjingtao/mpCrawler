@@ -1,0 +1,10 @@
+{
+  "@match": "https://mp.weixin.qq.com/cgi-bin/appmsgpublish*",
+  "@description": "获取微信公众号文章发布的文章标题、阅读数、点赞数、评论数，并下载成表格",
+  "@require": [
+    "https://code.jquery.com/jquery-3.6.0.min.js",
+    "https://cdn.bootcdn.net/ajax/libs/dayjs/1.11.12/dayjs.min.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"
+  ],
+  "@run-at": "document-end"
+}
