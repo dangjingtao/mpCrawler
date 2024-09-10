@@ -24,7 +24,7 @@ jobs:
         run: npm cache clean --force
 
       - name: Install dependencies
-        run: npm install # 安装项目依赖
+        run: npm ci # 安装项目依赖
 
       - name: Build TypeScript
         run: npm run build # 运行 TypeScript 构建命令
@@ -32,5 +32,5 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: my-artifact
-          path: ./ # 假设构建产物在 './' 目录下
+          name: artifact
+          path: ./main.user.prod.js # 假设构建产物在 './' 目录下
