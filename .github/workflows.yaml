@@ -6,30 +6,22 @@ on:
       - main
   pull_request:
     branches:
-      - main
+      - main  # 触发条件，这里表示在 push 和 pull_request 事件时触发
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # 运行环境
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
+      - uses: actions/checkout@v2  # 检出代码
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v2  # 设置 Node.js 环境
         with:
-          node-version: "18" # 你可以指定你需要的 Node.js 版本
+          node-version: '14'  # 指定 Node.js 版本
+          cache: 'npm'  # 缓存 npm 依赖
 
       - name: Install dependencies
-        run: npm ci # 或者使用 yarn install --frozen-lockfile
+        run: npm ci  # 安装项目依赖
 
-      - name: Build project
-        run: npm run build # 构建项目，确保 package.json 中有一个 "build" 脚本
-
-      - name: Deploy to GitHub Pages
-        if: success() && github.ref == 'refs/heads/main'
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./ # 假设构建输出在 ./ 目录
+      - name: Build TypeScript
+        run: npm run build  # 运行 TypeScript 构建命令
