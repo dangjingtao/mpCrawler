@@ -20,6 +20,9 @@ jobs:
           node-version: "14" # 指定 Node.js 版本
           cache: "npm" # 缓存 npm 依赖
 
+      - name: Clean npm cache
+        run: npm cache clean --force
+
       - name: Install dependencies
         run: npm ci # 安装项目依赖
 
