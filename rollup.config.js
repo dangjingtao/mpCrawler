@@ -162,7 +162,7 @@ function devConfigs() {
 }
 
 function prodConfigs() {
-  const outputFile = "main.user.js";
+  const outputFile = "main.user.prod.js";
   return defineConfig({
     input: "src/main.ts",
     output: {
