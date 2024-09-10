@@ -13,6 +13,7 @@ test
 dist
 dist-ssr
 *.local
+main.user.prod.js
 
 /cypress/videos/
 /cypress/screenshots/
